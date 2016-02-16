@@ -6,7 +6,7 @@ This web service application for Software Analysis and Maintenance (SAMF) extend
 ```
 git clone https://github.com/Kusumoto/samf-webservice.git
 npm install -g
-vi src/database.js and add mongodb uri
+vi src/mongo_uri.json and add mongodb uri in element 'mongo_uri'
 ```
 ### How to start web service
 ```
