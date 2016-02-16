@@ -1,0 +1,21 @@
+{
+  "name": "samf-webservice",
+  "version": "2.0.1",
+  "description": "Web Service for SAMF",
+  "main": "index.js",
+  "dependencies": {
+    "hapi": "^12.1.0",
+    "hapi-auth-basic": "^4.1.0",
+    "inert": "^3.2.0",
+    "mongoose": "^4.3.5",
+    "sprintf-js": "^1.0.3",
+    "joi": "^7.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Weerayut Hongsa",
+  "license": "MIT"
+}
