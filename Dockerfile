@@ -1,6 +1,8 @@
 
 FROM node:latest
 
+COPY . /app/samf-webservice
+
 WORKDIR /app/samf-webservice
 
 RUN npm install
