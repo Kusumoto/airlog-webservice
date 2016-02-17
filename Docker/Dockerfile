@@ -5,7 +5,7 @@ WORKDIR /app/samf-webservice
 
 RUN npm install
 
-COPY Docker/docker-entrypoint.sh /app/samf-webservice/entrypoint.sh
+COPY docker-entrypoint.sh /app/samf-webservice/entrypoint.sh
 
 RUN chmod 777 entrypoint.sh
 
