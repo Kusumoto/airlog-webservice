@@ -13,6 +13,13 @@ vi src/mongo_uri.json and add mongodb uri in element 'mongo_uri'
 npm start
 ```
 
+### Docker Install
+```
+docker run --name samf-webservice -e MONGO_URI=[your mongo connection uri] -p 8080:8080 -d kusumoto/samf-webservice-docker
+```
+### Environment
+```MONGO_URI``` = You MongoDB Connection URI
+
 ### More information and contact to developer
 * [Website :: https://kusumotolab.com](https://kusumotolab.com)
 * [Twitter :: @Kusumoto_ton](https://twtter.com/kusumoto_ton)
