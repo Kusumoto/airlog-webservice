@@ -127,6 +127,8 @@ module.exports = [{
             validate: {
                 payload: {
                     access_token: Joi.string(),
+                    start: Joi.string().allow(''),
+                    end: Joi.string().allow('')
                 },
                 params: {
                     app_id: Joi.string()
@@ -163,6 +165,8 @@ module.exports = [{
             validate: {
                 payload: {
                     access_token: Joi.string(),
+                    start: Joi.string().allow(''),
+                    end: Joi.string().allow('')
                 },
                 params: {
                     app_id: Joi.string()
