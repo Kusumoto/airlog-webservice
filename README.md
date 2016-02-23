@@ -15,7 +15,7 @@ npm start
 
 ### Docker Install
 ```
-docker run --name samf-webservice -e MONGO_URI=[your mongo connection uri] -p 8080:8080 -d kusumoto/samf-webservice-docker
+docker run --name samf-webservice -e MONGO_URI=[your mongo connection uri] -p 8080:8080 -d kusumoto/samf-webservice
 ```
 ### Environment
 ```MONGO_URI``` = You MongoDB Connection URI
