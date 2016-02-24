@@ -13,7 +13,7 @@ module.exports = [{
         api.findOne({ 'api_key': request.payload.access_token }, function (err, api) {
             if (err) throw err;
             if (api != undefined || api != null) {
-                if (api.api_isenable == true) {
+                if (api.api_isenable === true) {
                     applications.find({}, 'application_name application_lang application_agent', function (err, apps) {
                         console.log('[%s] : access_token = %s : call /api/applications', new Date(), request.payload.access_token);
                         reply(apps);
@@ -40,7 +40,7 @@ module.exports = [{
             api.findOne({ 'api_key': request.payload.access_token }, function (err, api) {
                 if (err) throw err;
                 if (api != undefined || api != null) {
-                    if (api.api_isenable == true) {
+                    if (api.api_isenable === true) {
                         applications.findOne({ '_id': request.params.app_id }, 'application_name application_lang application_agent', function (err, apps) {
                             console.log('[%s] : access_token = %s : call /api/application/%s', new Date(), request.payload.access_token, request.params.app_id);
                             reply(apps);
@@ -70,7 +70,7 @@ module.exports = [{
             api.findOne({ 'api_key': request.payload.access_token }, function (err, api) {
                 if (err) throw err;
                 if (api != undefined || api != null) {
-                    if (api.api_isenable == true) {
+                    if (api.api_isenable === true) {
                         functions.find({ 'application_id': request.params.app_id }, 'function_name application_id application_name function_primary', function (err, func) {
                             console.log('[%s] : access_token = %s : call /api/application/%s/listfunction', new Date(), request.payload.access_token, request.params.app_id);
                             reply(func);
@@ -100,7 +100,7 @@ module.exports = [{
             api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': 'true' }, function (err, api) {
                 if (err) throw err;
                 if (api != undefined || api != null) {
-                    if (api.api_isenable == true) {
+                    if (api.api_isenable === true) {
                         applications.findOne({ '_id': request.params.app_id }, function (err, app) {
                             if (err) throw err;
                             if (app != undefined || app != null) {
@@ -156,9 +156,9 @@ module.exports = [{
         method: 'POST',
         path: '/api/application/{app_id}/usercount',
         handler: function (request, reply) {
-            api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': 'true' }, function (err, api) {
+            api.findOne({ 'api_key': request.payload.access_token }, function (err, api) {
                 if (api != undefined || api != null) {
-                    if (api.api_isenable == true) {
+                    if (api.api_isenable === true) {
                         applications.findOne({ '_id': request.params.app_id }, function (err, app) {
                             if (err) throw err;
                             if (app != undefined || app != null) {
