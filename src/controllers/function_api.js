@@ -9,7 +9,7 @@ module.exports = [{
     method: 'POST',
     path: '/api/functions',
     handler: function (request, reply) {
-        api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': true }, function (err, api) {
+        api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': 'true' }, function (err, api) {
             if (err) throw err;
             if (api != undefined || api != null) {
                 functions.find({}, 'function_name application_id application_name', function (err, funcs) {
@@ -32,7 +32,7 @@ module.exports = [{
         method: 'POST',
         path: '/api/function/{app_id}/{func_id}',
         handler: function (request, reply) {
-            api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': true }, function (err, api) {
+            api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': 'true' }, function (err, api) {
                 if (err) throw err;
                 if (api != undefined || api != null) {
                     functions.findOne({ '_id': request.params.func_id, 'application_id': request.params.app_id }, 'function_name application_id application_name function_primary', function (err, func) {
@@ -59,7 +59,7 @@ module.exports = [{
         method: 'POST',
         path: '/api/function/{app_id}/{func_id}/loggercount',
         handler: function (request, reply) {
-            api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': true }, function (err, api) {
+            api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': 'true' }, function (err, api) {
                 if (err) throw err;
                 if (api != undefined || api != null) {
                     functions.findOne({ '_id': request.params.func_id, 'application_id': request.params.app_id }, function (err, func) {
@@ -115,7 +115,7 @@ module.exports = [{
         method: 'POST',
         path: '/api/function/{app_id}/{func_id}/usercount',
         handler: function (request, reply) {
-            api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': true}, function (err, api) {
+            api.findOne({ 'api_key': request.payload.access_token, 'api_isenable': 'true'}, function (err, api) {
                 if (err) throw err;
                 if (api != undefined || api != null) {
                     functions.findOne({ '_id': request.params.func_id, 'application_id': request.params.app_id  }, function (err, func) {
