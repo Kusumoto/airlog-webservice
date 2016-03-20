@@ -1,10 +1,10 @@
-# Web Service for Software Analysis and Maintenance Framework 
+# Web Service for Airlog (Old name Software Analysis and Maintenance Framework)
 
-This web service application for Software Analysis and Maintenance (SAMF) extends from Java Servlet port to Node.js 
+This web service application for Airlog extends from Java Servlet port to Node.js 
 
 ### How to install
 ```
-git clone https://github.com/Kusumoto/samf-webservice.git
+git clone https://github.com/Kusumoto/airlog-webservice.git
 npm install -g
 vi src/mongo_uri.json and add mongodb uri in element 'mongo_uri'
 ```
