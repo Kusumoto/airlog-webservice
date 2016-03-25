@@ -35,43 +35,73 @@ module.exports = [{
                                 reply({ 'status': 'failed' });
                                 throw err;
                             }
+
+                            functions.findOne({ 'application_id': app._id, 'function_token': request.payload.funcToken }, function (err, func) {
+                                if (err) throw err;
+                                loggers.create({
+                                    'log_type'      : request.payload.logtype,
+                                    'log_data'      : request.payload.logData,
+                                    'log_date'      : fulldate,
+                                    'log_time'      : fulltime,
+                                    'log_datetime'  : today.toISOString(),
+                                    'log_ip'        : ip,
+                                    'log_vagent'    : request.payload.vagent,
+                                    'log_appname'   : app.application_name,
+                                    'log_appid'     : app._id,
+                                    'log_funcname'  : func.function_name,
+                                    'log_funcid'    : func._id,
+                                    'log_classname' : '',
+                                    'log_methodname': ''
+                                }, function (err, doc) {
+                                    if (err) {
+                                        reply({ 'status': 'failed' });
+                                        throw err;
+                                    } else {
+                                        reply({ 'status': 'successful' });
+                                        console.log("%s : %s,%s log insert successful.", new Date(), app.application_name, func.function_name);
+                                    }
+                                });
+
+                            });
+                        }
+                    } else {
+                        loggers.create({
+                            'log_type'      : request.payload.logtype,
+                            'log_data'      : request.payload.logData,
+                            'log_date'      : fulldate,
+                            'log_time'      : fulltime,
+                            'log_datetime'  : today.toISOString(),
+                            'log_ip'        : ip,
+                            'log_vagent'    : request.payload.vagent,
+                            'log_appname'   : app.application_name,
+                            'log_appid'     : app._id,
+                            'log_funcname'  : func.function_name,
+                            'log_funcid'    : func._id,
+                            'log_classname' : '',
+                            'log_methodname': ''
+                        }, function (err, doc) {
+                            if (err) {
+                                reply({ 'status': 'failed' });
+                                throw err;
+                            } else {
+                                reply({ 'status': 'successful' });
+                                console.log("%s : %s,%s log insert successful.", new Date(), app.application_name, func.function_name);
+                            }
                         });
                     }
-                    loggers.create({
-                        'log_type'      : request.payload.logtype,
-                        'log_data'      : request.payload.logData,
-                        'log_date'      : fulldate,
-                        'log_time'      : fulltime,
-                        'log_datetime'  : today.toISOString(),
-                        'log_ip'        : ip,
-                        'log_vagent'    : request.payload.vagent,
-                        'log_appname'   : app.application_name,
-                        'log_appid'     : app._id,
-                        'log_funcname'  : func.function_name,
-                        'log_funcid'    : func._id,
-                        'log_classname' : '',
-                        'log_methodname': ''
-                    }, function (err, doc) {
-                        if (err) {
-                            reply({ 'status': 'failed' });
-                            throw err;
-                        } else {
-                            reply({ 'status': 'successful' });
-                            console.log("%s : %s,%s log insert successful.", new Date(), app.application_name, func.function_name);
-                        }
-                    });
+                    
                 });
-            }
-        });
-    }, config: {
-        validate: {
-            payload: {
-                appToken: Joi.string(),
-                funcToken: Joi.string(),
-                logtype: Joi.string(),
-                logData: Joi.string(),
-                vagent: Joi.string()
-            }
+                    }
+                });
+}, config: {
+    validate: {
+        payload: {
+            appToken: Joi.string(),
+            funcToken: Joi.string(),
+            logtype: Joi.string(),
+            logData: Joi.string(),
+            vagent: Joi.string()
         }
     }
+}
 }]
