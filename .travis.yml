@@ -7,6 +7,8 @@ node_js:
   - "5.11"
 before_install:
   - sudo apt-get install -y openjdk-8-jdk
+install:
+  - npm install
 script:
   - chmod +x run-scanner.sh
   - ./run-scanner.sh
