@@ -5,7 +5,7 @@ This web service application for Airlog extends from Java Servlet port to Node.j
 ### How to install
 ```
 git clone https://github.com/Kusumoto/airlog-webservice.git
-npm install -g
+npm install
 vi src/mongo_uri.json and add mongodb uri in element 'mongo_uri'
 ```
 ### How to start web service
